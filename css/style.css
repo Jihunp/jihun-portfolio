@@ -14,13 +14,17 @@
 
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: #8214f0;
+    --clr-accent: #A910EF;
 
     /* font size shaped in rem */
     --fs-h1: 1.5rem;
     --fs-h2: 1.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
+
+    /* box shadow. Increases realism with two shadows being created. comma allows us to add another additonal depth of shadow. */
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
 
 }
 /* for mobile development */
@@ -42,6 +46,7 @@ body {
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     line-height: 1.6;
+    padding: 0 2rem;
 }
 
 img {
@@ -85,7 +90,7 @@ h3 { font-size: var(--fs-h3);}
     background: var(--clr-accent);
     padding: .25em;
     font-family: var(--ff-secondary);
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 /* header */
@@ -95,6 +100,15 @@ nav { display: none; }
 
 .intro {
     position: relative;
+}
+
+.intro__img {
+    box-shadow: var(--bs);
+    margin-bottom: 2em;
+}
+
+.section__subtitle--intro {
+    display: inline-block;
 }
 
 /* 600 is a good generic */
@@ -124,5 +138,46 @@ nav { display: none; }
         top: 3rem;
         left: -1.5em;
         width: calc(100% + 1.5em);
+    }
+}
+
+
+/* My Services section */
+.my-services {
+    background-color: var(--clr-dark);
+    background-image: url(../img/pexels-cottonbro-5483075.jpg);
+    color: var(--clr-light);
+    background-size: cover;
+    /* blend helps create a more visible background for the text to be more readible */
+    /* background-blend-mode: multiply; */
+    padding: 5%;
+    text-align: center;
+}
+
+.section__title--services {
+    color: var(--clr-light);
+    position: relative;
+}
+
+.section__title--services::after {
+    content: '';
+    display: block;
+    width: 2em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-light);
+    opacity: 0.25;
+}
+
+/* puts skills side to side and when resizing  */
+@media (min-width: 800px) {
+    .services {
+        display: flex;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+/* no longer touching. If there is a sibling then add margin-left but otherwise leave it alone. The first element is ignored */
+    .service + .service {
+        margin-left: 2em;
     }
 }
