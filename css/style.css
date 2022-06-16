@@ -23,10 +23,11 @@
     --fs-body: 1rem;
 
     /* box shadow. Increases realism with two shadows being created. comma allows us to add another additonal depth of shadow. */
-    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25),
+        0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
 
 }
+
 /* for mobile development */
 @media(min-width: 800px) {
     :root {
@@ -40,7 +41,7 @@
 /* general styles */
 
 body {
-    background:var(--clr-light);
+    background: var(--clr-light);
     color: var(--clr-dark);
     margin: 0;
     font-family: var(--ff-primary);
@@ -54,7 +55,9 @@ img {
     max-width: 100%;
 }
 
-strong { font-weight: var(--fw-bold) }
+strong {
+    font-weight: var(--fw-bold)
+}
 
 :focus {
     /* applies to buttons and other things */
@@ -91,10 +94,21 @@ h3 {
     margin: 0;
 }
 
-h1 { font-size: var(--fs-h1);}
-h2 { font-size: var(--fs-h2);}
-h3 { font-size: var(--fs-h3);}
-h4 { font-size: var(--fs-h4);}
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+h4 {
+    font-size: var(--fs-h4);
+}
 
 .section__title {
     margin-bottom: .25em;
@@ -103,6 +117,7 @@ h4 { font-size: var(--fs-h4);}
 .section__title--intro {
     font-weight: var(--fw-reg);
 }
+
 /* compound selectors are no beuno but this makes jihun edward park on it's own line */
 .section__title--intro strong {
     display: block;
@@ -128,7 +143,51 @@ h4 { font-size: var(--fs-h4);}
 }
 
 /* header */
-nav { display: none; }
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+.nav {
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h3);
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: var(--clr-accent);
+}
 
 /* intro section */
 
@@ -157,12 +216,14 @@ nav { display: none; }
             "img subtitle";
         grid-template-columns: min-content max-content;
     }
+
     .intro__img {
         grid-area: img;
         min-width: 250px;
         position: relative;
         z-index: 2;
     }
+
     .section__subtitle--intro {
         align-self: start;
         grid-column: -1 / 1;
@@ -220,14 +281,15 @@ nav { display: none; }
         margin-left: auto;
         margin-right: auto;
     }
-/* no longer touching. If there is a sibling then add margin-left but otherwise leave it alone. The first element is ignored */
-    .service + .service {
+
+    /* no longer touching. If there is a sibling then add margin-left but otherwise leave it alone. The first element is ignored */
+    .service+.service {
         margin-left: 2em;
     }
 }
 
 .about-me {
-    max-width:  1000px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -250,7 +312,7 @@ nav { display: none; }
     .section__title--about {
         grid-area: title;
     }
-    
+
     .section__subtitle--about {
         grid-column: 1 / -1;
         grid-row: 2;
@@ -260,7 +322,7 @@ nav { display: none; }
         padding-left: 1em;
         padding-right: calc(200px + 4em);
     }
-    
+
     .about-me__img {
         grid-area: img;
         position: relative;
@@ -291,7 +353,7 @@ nav { display: none; }
 
 .portfolio__img {
     /* cubic-bezier defined by four points. helps create an ease in and out animation */
-    transition: 
+    transition:
         transform 750ms cubic-bezier(.5, 0, .5, 1),
         opacity 250ms linear;
 }
