@@ -94,6 +94,7 @@ h3 {
 h1 { font-size: var(--fs-h1);}
 h2 { font-size: var(--fs-h2);}
 h3 { font-size: var(--fs-h3);}
+h4 { font-size: var(--fs-h4);}
 
 .section__title {
     margin-bottom: .25em;
@@ -314,6 +315,7 @@ nav { display: none; }
     color: var(--clr-accent);
     text-align: center;
     padding: 2.5em 0;
+    font-size: var(--fs-h4);
 }
 
 .footer a {
@@ -322,7 +324,6 @@ nav { display: none; }
 }
 
 .footer__link {
-    font-size: var(--fs-h3);
     font-weight: var(--fw-bold);
 }
 
@@ -333,4 +334,20 @@ nav { display: none; }
 
 .footer__link:hover {
     text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
 }
